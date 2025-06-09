@@ -6,6 +6,7 @@ meta:
 
 <template>
     <!-- 현재페이지 -->
+    <loading />
     <subTitle :useButton="['Save','Serach','Add','Del','Close']" @click="clickEvent"/>
     <!-- 조회조건 -->
     <div class="searchCondition">
@@ -16,11 +17,13 @@ meta:
         <AppInput mode="input" v-model="username3" label="사용자명" />
 
     </div>
-    <!-- 그리드 -->
+    <!-- 그리드 --> 
     <div class="grdWapper__full">
         <grid ref="grd" :fields="fields" :columns="columns" :rows="rows"/>
     </div>
     <demoPopUp :open="open" @close="open = false" />
+
+
 </template>
 
 
@@ -32,6 +35,8 @@ import grid from '@/components/grid/grid.vue'
 import { ValueType } from "realgrid";
 import api  from'@/api/api.js'
 import demoPopUp from '@/views/test/demo/demoPopUp.vue'
+
+import loading from '@/components/loading/loading.vue'
 
 
 const username = ref('')
