@@ -17,8 +17,8 @@ const router = createRouter({
 
 router.afterEach((to) => {
   if(to.name !== 'index'){
-    const historyStore = useHistoryStore()``
-    historyStore.addPage({path: to.fullPath , name: to.name})
+    const historyStore = useHistoryStore()
+    historyStore.addPage({path: to.fullPath , name: to.name, title: to.meta.title})
   }
 
 

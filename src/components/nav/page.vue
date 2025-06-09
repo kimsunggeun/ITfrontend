@@ -1,7 +1,7 @@
 <template>
   <div class="page">
   <v-chip-group>
-  <v-chip v-for=" (e,i) in historyStore.visitedPages"  @click="toRouter(e.path)"  size="small">{{ e.name  }} 
+  <v-chip v-for=" (e,i) in historyStore.visitedPages"  @click="toRouter(e.path)"  size="small">{{ e.title  }} 
     <v-icon @click="removeChip(e.name,i)" style="margin-left: 4px;">mdi-close-circle-outline</v-icon>
 </v-chip>
 
@@ -46,7 +46,6 @@ const removeChip = (name, index) => {
 watch(
   () => historyStore.visitedPages,
   (newVal, oldVal) => {
-    console.log(newVal, oldVal, 'newVal, oldVal')
     if(newVal.length === 0){
         router.push({
         path: "/",

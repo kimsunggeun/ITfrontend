@@ -1,6 +1,6 @@
 <template>
   <div class="titleSub">
-    {{ tilte }}
+    {{ title }}
 
     <div class="buttonBox">
       <useButton :useButton="props.useButton" @click="emit('click', $event)" />
@@ -9,7 +9,6 @@
 </template>
 
 <script setup>
-import { useHistoryStore } from '@/stores/history'
 import { ref, watch,onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import useButton from '@/components/button/button.vue'
@@ -21,13 +20,17 @@ const props = defineProps({
 
 onMounted(() => {
   console.log(props.useButton,'props.useButton')
+  console.log(useRoute(),'tilte')
 })
 
 const emit = defineEmits(['click'])
+const route = useRoute()
+const title = ref(route.meta.title)
 
-const tilte = ref(useRoute().name)
 
 
-
+watch(() => route.name, (newName) => {
+  title.value = newName
+})
 
 </script>

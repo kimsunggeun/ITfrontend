@@ -52,7 +52,7 @@ const router = useRouter();
 const routerLinks = ref([
 
     {
-        path: '/test',
+        path: '/test/demo',
         name: 'test',
         children: [
             { path: 'demo', name: '데모페이지' },

@@ -1,23 +1,26 @@
 <route lang="yaml">
 layout: DefaultLayout
+meta:
+  title: '데모 페이지'
 </route>
 
 <template>
     <!-- 현재페이지 -->
-    <subTitle :useButton="['Save','Serach','Add','Del','Cancel']" @click="clickEvent"/>
+    <subTitle :useButton="['Save','Serach','Add','Del','Close']" @click="clickEvent"/>
     <!-- 조회조건 -->
     <div class="searchCondition">
   
-        <AppInput mode="select" :itmes="items" :value="value" :tilte="title" v-model="username" label="사용자명" />
+        <AppInput mode="select" :itmes="items" v-model="username" label="사용자명" />
         <AppInput mode="input" v-model="username1" label="사용자명" />
         <AppInput mode="input" v-model="username2" label="사용자명" />
         <AppInput mode="input" v-model="username3" label="사용자명" />
+
     </div>
     <!-- 그리드 -->
     <div class="grdWapper__full">
         <grid ref="grd" :fields="fields" :columns="columns" :rows="rows"/>
     </div>
-      
+    <demoPopUp :open="open" @close="open = false" />
 </template>
 
 
@@ -28,11 +31,15 @@ import { reactive, ref,onMounted } from 'vue';
 import grid from '@/components/grid/grid.vue'
 import { ValueType } from "realgrid";
 import api  from'@/api/api.js'
+import demoPopUp from '@/views/test/demo/demoPopUp.vue'
+
+
 const username = ref('')
 const username1 = ref('')
 const username2 = ref('')
 const username3 = ref('')
- 
+const open = ref(false)
+
 
 
 const items = reactive([
@@ -44,9 +51,9 @@ const items = reactive([
 
 
 const clickEvent =(e)=>{
-    console.log(e,'e')
     if(e.id ==='Save'){
         console.log('Save')
+  
     }
       if(e.id ==='Serach'){
         console.log('Serach')
@@ -57,6 +64,9 @@ const clickEvent =(e)=>{
     }
       if(e.id==="Add"){
         addRow()
+      }
+      if(e.id==="Close"){
+        open.value = true
       }
 }
 
