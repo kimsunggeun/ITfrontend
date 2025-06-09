@@ -8,12 +8,14 @@
     </main>
 
     <footers  v-if="isIndex"/>
+    <loading />
   </div>
 </template>
 
 <script setup>
 import { watch,ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import loading from '@/components/loading/loading.vue'
 
 const route = useRoute()
 const isIndex = ref(true)
