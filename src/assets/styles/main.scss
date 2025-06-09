@@ -1,0 +1,131 @@
+.nav {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 24px;
+    color: #222;
+
+    .logo {
+        cursor: pointer;
+
+        img {
+            width: 240px;
+        }
+    }
+
+    .menuZone {
+        display: flex;
+        width: 80%;
+
+        span {
+            color: #222;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+    }
+
+}
+
+
+.page {
+    padding: 0px 64px;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+
+.index_wapper {
+    background-color: #fff;
+    height: calc(100vh - (64px + 64px));
+}
+
+
+.wapper {
+    padding: 24px;
+    margin: 0 auto;
+    width: calc(100% - 120px);
+    height: calc(100vh - (64px + 64px));
+    background-color: #fff;
+}
+
+
+
+
+
+//인풧 css
+
+.inputWapper {
+    //width: 250px;
+    min-width: 250px;
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+
+    .label {
+        margin-right: 8px;
+        min-width: 80px;
+    }
+
+    .v-field__field {
+        background-color: #fff;
+        height: 40px;
+        min-width: 180px;
+    }
+
+    .v-field__input {
+        min-height: 0px;
+        padding: 8px;
+        height: 40px;
+    }
+
+    .v-input__control {
+        background-color: #fff;
+    }
+}
+
+
+
+// 서브
+
+.wapperSub {
+    padding: 24px 0;
+}
+
+.titleSub {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttonBox {
+    display: flex;
+    min-width: 500px;
+    gap: 8px;
+    justify-content: flex-end
+}
+
+.searchCondition {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 8px;
+    background-color: #f5f5f5;
+    padding: 8px 24px;
+
+}
+
+.grdWapper__full {
+    width: 100%;
+    margin-top: 24px;
+    height: calc(100vh - 310px);
+    margin-bottom: 24px;
+}
+
+// 
