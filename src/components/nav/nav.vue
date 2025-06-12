@@ -26,12 +26,16 @@
                 
             
             </v-menu>
-    
+      
 
             </div>
            
         </div>
-        <div class="zone"></div>
+        <div class="zone">
+            <v-icon color="#495057" >mdi-bell</v-icon>
+            <v-icon color="#495057" >mdi-cog</v-icon>
+            <v-icon color="#495057" @click="logout">mdi-logout</v-icon>
+        </div>
 
 
     </div>
@@ -45,9 +49,10 @@
 import { ref } from 'vue'
 import { useRouter } from "vue-router";
 import Logo from '@/assets/img/LS_THiRAUTECH_SIGNATURE.png'
+import { useAuthStore } from '@/stores/user'
 
 const router = useRouter();
-
+const authStore = useAuthStore()
 
 const routerLinks = ref([
 
@@ -59,6 +64,16 @@ const routerLinks = ref([
 
         ]
     },
+    {
+        path: '/LED3',
+        name: 'IT진단관리',
+        children: [
+            { path: 'LDE013', name: '설문지생성' },
+
+        ]
+    },
+    
+    
     {
         path: '/education',
         name: '교육용',
@@ -76,6 +91,11 @@ const toMain = () => {
     router.push({
         path: "/",
     });
+}
+
+const logout = async () => {
+    await authStore.logout()
+    router.push('/Login')
 }
 
 </script>

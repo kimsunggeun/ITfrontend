@@ -4,9 +4,10 @@ import { useLoadingStore } from '@/stores/loading'
 const api = axios.create({
   baseURL: 'http://localhost:8080',
   timeout: 10000,
+  withCredentials: true 
 })
 
-// Request Interceptor
+
 api.interceptors.request.use(
   (config) => {
     const loading = useLoadingStore()
@@ -20,7 +21,7 @@ api.interceptors.request.use(
   }
 )
 
-// Response Interceptor
+
 api.interceptors.response.use(
   (response) => {
     const loading = useLoadingStore()
@@ -30,6 +31,12 @@ api.interceptors.response.use(
   (error) => {
     const loading = useLoadingStore()
     loading.finish()
+
+    if (error.response && error.response.status === 401) {
+      console.warn('🔒 인증 실패 - 로그인 필요')
+      router.push('/login')
+    }
+
     return Promise.reject(error)
   }
 )

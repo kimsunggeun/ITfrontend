@@ -7,16 +7,24 @@ const router = createRouter({
   routes,
 });
 
+import { useAuthStore } from '@/stores/user'
 
 
-// tobe 라우터가드 만들기
-// router.beforeEach((to, from, next) => {
 
-// })
+router.beforeEach(async (to, from, next) => {
+  const authStore = useAuthStore()
 
+  if (to.path === '/Login') return next()
+      
+   if (authStore.isAuthenticated) {
+      return next()
+  } else {
+    return next('/Login')
+  }
+})
 
 router.afterEach((to) => {
-  if(to.name !== 'index'){
+  if(to.name !== 'index' && to.name !== 'Login'){
     const historyStore = useHistoryStore()
     historyStore.addPage({path: to.fullPath , name: to.name, title: to.meta.title})
   }
