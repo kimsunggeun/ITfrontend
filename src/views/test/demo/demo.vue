@@ -36,6 +36,7 @@ import api  from'@/api/api.js'
 import demoPopUp from '@/views/test/demo/demoPopUp.vue'
 
 
+
 const username = ref('')
 const username1 = ref('')
 const username2 = ref('')
@@ -99,8 +100,18 @@ const addRow = () => {
 };  
 
 const Serach = async () =>{
-  const data = await api.get('/test/hi')
-  console.log(data)
+  await api.post('/test/test',null,{
+      successMessage: '조회 성공!',
+      errorMessage: '조회 실패!'
+    })
+  .then((res)=>{
+
+  })
+  .catch((err)=>{
+
+  })
+ 
+
 }
 
 

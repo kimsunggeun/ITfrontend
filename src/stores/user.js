@@ -1,5 +1,8 @@
 import api from '@/api/api'
+import router from '@/router/main'
 import { defineStore } from 'pinia'
+
+
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
@@ -29,5 +32,9 @@ export const useAuthStore = defineStore('auth', {
           this.checked = false
         }
       }
+    },
+    persist: {
+      storage: sessionStorage,
+      paths: ['isAuthenticated'],
     }
   })

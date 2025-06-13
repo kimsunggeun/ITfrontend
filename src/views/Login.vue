@@ -89,19 +89,19 @@ const login = async () => {
     await api.post('/auth/login', {
       id: id.value,
       password: password.value,
+    },{
+      successMessage: '로그인 되었습니다.',
+      errorMessage: '로그인에 실패하셨습니다.'
     })
 
     await authStore.checkAuth() 
 
     if (authStore.isAuthenticated) {
       router.push('/')
-    } else {
-      alert('로그인 실패: 인증 실패')
-    }
+    } 
 
   } catch (err) {
     console.error('로그인 실패', err)
-    alert('아이디 또는 비밀번호가 잘못되었습니다.')
   }
 }
 

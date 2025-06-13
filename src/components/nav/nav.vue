@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref ,onMounted} from 'vue'
 import { useRouter } from "vue-router";
 import Logo from '@/assets/img/LS_THiRAUTECH_SIGNATURE.png'
 import { useAuthStore } from '@/stores/user'
@@ -97,6 +97,9 @@ const logout = async () => {
     await authStore.logout()
     router.push('/Login')
 }
+
+
+
 
 </script>
 

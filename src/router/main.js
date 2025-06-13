@@ -15,7 +15,6 @@ router.beforeEach(async (to, from, next) => {
   const authStore = useAuthStore()
 
   if (to.path === '/Login') return next()
-      
    if (authStore.isAuthenticated) {
       return next()
   } else {
