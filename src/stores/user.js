@@ -21,6 +21,7 @@ export const useAuthStore = defineStore('auth', {
         }
       },
   
+  // 테스트    // /
    
       async logout() {
         try {
