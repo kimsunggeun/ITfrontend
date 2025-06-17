@@ -55,7 +55,16 @@ const router = useRouter();
 const authStore = useAuthStore()
 
 const routerLinks = ref([
+    
+    {
+        path: '/common',
+        name: '프로그램관리',
+        children: [
+            { path: 'commonCode', name: '공통코드' },
 
+        ]
+    },
+    
     {
         path: '/test/demo',
         name: 'test',
@@ -64,15 +73,6 @@ const routerLinks = ref([
 
         ]
     },
-    {
-        path: '/LED3',
-        name: 'IT진단관리',
-        children: [
-            { path: 'LDE013', name: '설문지생성' },
-
-        ]
-    },
-    
     
     {
         path: '/education',
